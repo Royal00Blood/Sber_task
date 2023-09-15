@@ -3,7 +3,7 @@ from FExchange import FExchange
 
 def interface():
     exchange = FExchange()
-    do = 0
+    action = None
 
     print(" 1 - Sell \n",
           "2 - Buy \n",
@@ -13,18 +13,18 @@ def interface():
     while 1:
 
         try:
-            do = int(input("Enter 1, 2, 3 or 4: "))
+            action = int(input("Enter 1, 2, 3 or 4: "))
         except TypeError:
             print("Sorry! You enter no number!")
 
-        if do == 1:
+        if action == 1:
             exchange.sell_shares()
 
-        elif do == 2:
+        elif action == 2:
             exchange.buy_shares()
 
-        elif do == 3:
+        elif action == 3:
             exchange.e_cash_show()
 
-        elif do == 4:
+        elif action == 4:
             exit()

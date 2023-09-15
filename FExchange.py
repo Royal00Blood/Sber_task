@@ -44,8 +44,7 @@ class FExchange:
 
     def sell_shares(self):
         """
-        The function performs the process of selling shares
-        from a financial portfolio.
+        The function performs the process of selling shares from a financial portfolio.
         :return:
         """
         f_abil = False  # The possibility of selling something
@@ -73,8 +72,7 @@ class FExchange:
 
     def __capital_calcul(self):
         """
-        The function calculates the sum of all the shares
-         in the financial portfolio.
+        The function calculates the sum of all the shares in the financial portfolio.
         :return: Current value of the financial portfolio.
         """
         for i in AssetPrice:
