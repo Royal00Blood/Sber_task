@@ -24,17 +24,22 @@ class FExchange:
         :return:
         """
         for i in AssetPrice:
-            print(f"You have  {i} shares of {self.__fin_p[i]} ")
+            print(f"            You have  {i} shares of {self.__fin_p[i.name]} ")
+        print("You can to buy :")
         for x in AssetPrice:
-            print("You can to buy :", "\n", f"Company: {x.name}, coast: {x.value}")
+            print(f"            Company: {x.name}, coast: {x.value}")
         while 1:
-            n_promotion = input('')
-            if n_promotion is str:
+            n_promotion = input('Enter name of the promotion: ')
+            if n_promotion in self.__fin_p:
                 break
+            else:
+                print("Enter again. You have  mistake. (Example: SBER)")
         while 1:
-            c_promotion = int(input(''))
-            if c_promotion is int:
+            c_promotion = int(input('Enter the number of shares to buy: '))
+            if type(c_promotion) == int:
                 break
+            else:
+                print("Enter again")
         self.__fin_p[n_promotion] += c_promotion
 
     def sell_shares(self):
@@ -45,12 +50,26 @@ class FExchange:
         """
         f_abil = False  # The possibility of selling something
         for i in AssetPrice:
-            print(f"You have  {i} shares of {self.__fin_p[i]} ")
+            print(f"You have  {i} shares of {self.__fin_p[i.name]} ")
             if not f_abil:
-                if self.__fin_p[i] > 0:
+                if self.__fin_p[i.name] > 0:
                     f_abil = True
         if not f_abil:
             print("You don't have any shares")
+        else:
+            while 1:
+                n_promotion = input('Enter name of the promotion: ')
+                if n_promotion in self.__fin_p:
+                    break
+                else:
+                    print("Enter again. You have  mistake. (Example: SBER)")
+            while 1:
+                c_promotion = int(input('Enter the number of shares to buy: '))
+                if type(c_promotion) == int:
+                    break
+                else:
+                    print("Enter again")
+            self.__fin_p[n_promotion] -= c_promotion
 
     def __capital_calcul(self):
         """
@@ -59,4 +78,4 @@ class FExchange:
         :return: Current value of the financial portfolio.
         """
         for i in AssetPrice:
-            self.__e_cash += self.__fin_p[i] * i.value
+            self.__e_cash += self.__fin_p[i.name] * i.value
