@@ -14,7 +14,7 @@ def interface():
 
         try:
             action = int(input("Enter 1, 2, 3 or 4: "))
-        except TypeError:
+        except ValueError:
             print("Sorry! You enter no number!")
 
         if action == 1:
