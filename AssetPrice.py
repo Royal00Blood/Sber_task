@@ -3,6 +3,9 @@ from enum import Enum
 
 
 class AssetPrice(Enum):
-    # Котировальный список активов.
+    """
+    This class contains information about
+    the shares available for purchase and their value.
+    """
     LKOH = Decimal(5896)
     SBER = Decimal(250)
