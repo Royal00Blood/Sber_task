@@ -27,6 +27,15 @@ class FExchange:
             print(f"You have  {i} shares of {self.__fin_p[i]} ")
         for x in AssetPrice:
             print("You can to buy :", "\n", f"Company: {x.name}, coast: {x.value}")
+        while 1:
+            n_promotion = input('')
+            if n_promotion is str:
+                break
+        while 1:
+            c_promotion = int(input(''))
+            if c_promotion is int:
+                break
+        self.__fin_p[n_promotion] += c_promotion
 
     def sell_shares(self):
         """
